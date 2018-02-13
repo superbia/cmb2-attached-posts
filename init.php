@@ -416,7 +416,7 @@ class WDS_CMB2_Attached_Posts_Field {
 			$attached_objects[ $this->get_id( $object ) ] = $object;
 		}
 
-		if ( ! empty( $attached ) ) {
+		if ( array_filter( $attached ) ) {
 			$is_users = $this->field->options( 'query_users' );
 			$args[ $is_users ? 'include' : 'post__in' ] = $attached;
 			$args[ $is_users ? 'number' : 'posts_per_page' ] = count( $attached );
